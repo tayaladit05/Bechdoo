@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bechdoo Auth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="kicker">Bechdoo</p>
+        <h1>Simple Auth Frontend</h1>
+        <p class="subtitle">
+          Register, verify, and login using your existing backend APIs.
+        </p>
+      </section>
+
+      <section class="cards" aria-label="Auth actions">
+        <article class="card">
+          <h2>Register</h2>
+          <form id="registerForm" class="form">
+            <label>
+              Name
+              <input type="text" name="name" required placeholder="John Doe" />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required placeholder="john@company.com" />
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" required minlength="6" />
+            </label>
+            <button type="submit">Create Account</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <h2>Verify Email</h2>
+          <form id="verifyForm" class="form">
+            <label>
+              Verification Token
+              <input
+                type="text"
+                name="token"
+                required
+                placeholder="Paste token from verification link"
+              />
+            </label>
+            <button type="submit">Verify</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <h2>Login</h2>
+          <form id="loginForm" class="form">
+            <label>
+              Email
+              <input type="email" name="email" required placeholder="john@company.com" />
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" required />
+            </label>
+            <button type="submit">Login</button>
+          </form>
+        </article>
+      </section>
+
+      <section class="card output-card" aria-live="polite">
+        <div class="output-header">
+          <h2>Response</h2>
+          <button type="button" id="clearBtn" class="ghost-btn">Clear</button>
+        </div>
+        <pre id="output">Ready.</pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

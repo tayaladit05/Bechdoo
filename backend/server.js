@@ -14,8 +14,8 @@ const cookieParser = require("cookie-parser");
 connectDB();
 
 const app = express();
-app.use(cookieParser());
 app.use(helmet());
+app.use(cookieParser());
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
