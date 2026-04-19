@@ -16,7 +16,12 @@ connectDB();
 const app = express();
 app.use(helmet());
 app.use(cookieParser());
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    credentials: true,
+  })
+);
 app.use(morgan("dev"));
 app.use(express.json());
 
@@ -27,7 +32,10 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 
 app.get("/api/protected", protect, (req, res) => {
-  res.json({ message: `Hello ${req.user.name}, you are verified!` });
+  res.json({
+    message: `Hello ${req.user.name}, you are verified!`,
+    user: req.user,
+  });
 });
 
 const PORT = process.env.PORT || 5000;
